@@ -1,4 +1,5 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import "./Gigs.scss";
 import GigCard from "../../components/gigCard/GigCard";
 import {
@@ -15,21 +16,24 @@ function Gigs() {
     const [open, setOpen] = useState(false);
     const minRef = useRef();
     const maxRef = useRef();
-
-    const { isLoading, error, data } = useQuery({
+    
+    const { search } = useLocation();
+    
+    const { isLoading, error, data, refetch } = useQuery({
         queryKey: ['repoData'],
-        queryFn: () => newRequest.get("/gig").then(res => { return res.data; })
+        queryFn: () => newRequest.get(`/gig?${search}&min=${minRef.current.value}&max=${maxRef.current.value}`)
+        .then(res => { return res.data; })
     });
-    console.log(data)
     
     const reSort = (type) => {
         setSort(type);
         setOpen(false);
     };
 
+    useEffect( ()=> { refetch() }, [sort]);
+
     const apply = ()=>{
-        console.log(minRef.current.value)
-        console.log(maxRef.current.value)
+        refetch();
     }
 
     return (
@@ -69,7 +73,7 @@ function Gigs() {
                     {
                         isLoading 
                         ? "loading" 
-                        : error ? "Something went wrong!" : data.map( (gig) => <GigCard key={gig.id} item={gig} /> )
+                        : error ? "Something went wrong!" : data.map( (gig) => <GigCard key={gig._id} item={gig} /> )
                     }
                 </div>
             </div>
