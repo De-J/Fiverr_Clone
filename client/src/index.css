@@ -1,3 +1,13 @@
+@font-face {
+    font-family: Macan;
+    src: url("./assets/fonts/MacanPanWeb-Bold.woff2");
+}
+
+@font-face {
+    font-family: Macan-med;
+    src: url("./assets/fonts/MacanPanWeb-Medium.woff2");
+}
+
 :root {
-    font-family: "Segoe UI", sans-serif;
+    font-family: "Macan-med", "Helvetica Neue", sans-serif;
 }
