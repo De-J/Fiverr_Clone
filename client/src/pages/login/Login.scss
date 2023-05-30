@@ -2,7 +2,7 @@
     --canvas-backg-color: #013914;
     --border-color: #A6BB8D;
     --btn-backg-color: #1dbf73;
-        --btn-backg-hover-color: #19a463;
+    --btn-backg-hover-color: #19a463;
 }
 
 body {
@@ -12,11 +12,11 @@ body {
 
 .login {
     width: 100vw;
-    
+
     .heading {
         text-align: center;
     }
-    
+
     h1 {
         margin-bottom: 2rem;
         font-weight: 100;
@@ -25,7 +25,7 @@ body {
     .social {
         margin-bottom: 1.5rem;
     }
-    
+
     form {
         width: 280px;
         min-width: 280px;
@@ -33,11 +33,11 @@ body {
         padding: 1rem;
         border: 1px solid var(--border-color);
         border-radius: 0.375rem;
-    }
-
-    p {
-        margin: 0;
-        width: 100%;
+    
+        p {
+            margin: 0;
+            width: 100%;
+        }   
     }
 
     button {
@@ -51,12 +51,17 @@ body {
         background: #4267b2;
         border-color: #4267b2;
 
+        &:hover {
+            opacity: 0.9;
+        }
+
         path {
             fill: white;
         }
     }
 
-    button, input {
+    button,
+    input {
         background: none;
         font-family: inherit;
         box-sizing: border-box;
@@ -77,15 +82,15 @@ body {
         border: none;
         border-top: 1px solid;
         overflow: visible;
-    }
 
-    hr:after {
-        content: "OR";
-        background: #fff;
-        padding: 0 0.325rem;
-        position: relative;
-        top: -10px;
-        
+        &:after {
+            content: "OR";
+            background: #fff;
+            padding: 0 0.325rem;
+            position: relative;
+            top: -10px;
+
+        }
     }
 
     .btn {
@@ -94,9 +99,9 @@ body {
         cursor: pointer;
         border: none;
         margin-bottom: 0.25rem;
-    }
 
-    .btn:hover {
-        background-color: var(--btn-backg-hover-color);
+        &:hover {
+            background-color: var(--btn-backg-hover-color);
+        }
     }
 }
