@@ -5,7 +5,7 @@ function Logo() {
     return (
         <div className="logo">
             <Link to="/">
-                <span>liverr</span>
+                <span>fiverr</span>
                 <span className="dot">.</span>
             </Link>
         </div>

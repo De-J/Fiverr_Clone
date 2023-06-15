@@ -1,0 +1,41 @@
+.categories {
+    padding: 0 1rem;
+
+
+    h1 {
+        margin-bottom: 3rem;
+        padding: 1rem 0;
+        font-size: 2rem;
+        color: #404145;
+    }
+    ul {
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        list-style-type: none;
+
+        li {
+            margin: 0 auto 3.125rem;
+            flex-basis: 244px;
+            flex-grow: 1;
+            box-sizing: border-box;
+            color: #222325;
+
+            a {
+                text-decoration: none;
+                color: inherit;
+                text-align: center;
+                
+                img {
+                    display: block;
+                    margin: 0 auto;
+                    width: 50px;
+                    height: 50px;
+                }
+            }
+
+
+        }
+
+    }
+}
