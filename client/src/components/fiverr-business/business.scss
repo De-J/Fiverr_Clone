@@ -1,10 +1,44 @@
 .fiverr-business {
     display: flex;
-    margin: 0;
-    padding: 2rem;
-    
-    .item {
-        width: 50%;
+    gap: 1rem;
+    align-items: center;
+    background-color: #0d084d;
+    color: white;
+    padding: 6rem 2rem;
+
+    .text {
+        box-sizing: border-box;
+
+        .heading {
+            display: flex;
+            align-items: baseline;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+    }
+
+    .image {
+        box-sizing: border-box;
+        padding: 0.25rem;
+        max-width: 45%;
+    }
+
+    li {
+        display: flex;
+        align-items: center;
+        margin: 2rem 0;
+        
+        svg {
+            margin-right: 0.5rem;
+        }
+    }
+
+    button {
+        background-color: white;
+        border-radius: 0.25rem;
+        padding: 0.5rem 1.5rem;
+        color: #62646a;
+        font-size: 1rem
     }
 
 }
