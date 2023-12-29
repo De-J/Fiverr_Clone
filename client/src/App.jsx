@@ -25,11 +25,11 @@ function App() {
     const Layout = () => {
         return (
             <div className="app">
-                <QueryClientProvider client={queryClient}>
+                {/* <QueryClientProvider client={queryClient}> */}
                     <Navbar />
                     <Outlet />
                     <Footer />
-                </QueryClientProvider>
+                {/* </QueryClientProvider> */}
             </div>
         );
     };
@@ -45,6 +45,14 @@ function App() {
                 },
                 {
                     path: "/gig",
+                    element: <Gig />,
+                },
+                {
+                    path: "/gig/:id",
+                    element: <Gig />,
+                },
+                {
+                    path: "/categories",
                     element: <Gigs />,
                 },
                 {
@@ -66,10 +74,6 @@ function App() {
                 {
                     path: "/add",
                     element: <Add />,
-                },
-                {
-                    path: "/gig/:id",
-                    element: <Gig />,
                 },
             ],
         },

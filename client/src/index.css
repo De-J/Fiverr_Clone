@@ -8,6 +8,14 @@
     src: url("./assets/fonts/MacanPanWeb-Medium.woff2");
 }
 
-:root {
+html {
     font-family: "Macan-med", "Helvetica Neue", sans-serif;
+
+    --canvas-backg-color: #013914;
+    --border-color: #A6BB8D;
+    --btn-backg-color: #1dbf73;
+    --btn-backg-hover-color: #19a463;
+
+    font-size: 16px;
+
 }

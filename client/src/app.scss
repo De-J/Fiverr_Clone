@@ -1,6 +1,27 @@
+:root {
+  font-family: "Macan-med", Helvetica, sans-serif;
+}
+
 * {
-  .link {
-    text-decoration: none;
-    color: inherit;
-  }
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+}
+
+input {
+  font-family: inherit;
 }

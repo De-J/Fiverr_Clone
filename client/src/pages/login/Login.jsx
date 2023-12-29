@@ -49,7 +49,7 @@ function Login() {
           </button>
         </div>
 
-        <hr></hr>
+        <hr/>
 
         <input
           type="text"

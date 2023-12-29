@@ -1,11 +1,8 @@
 .navbar {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #013914;
-    color: white;
     position: sticky;
     top: 0;
+    color: white;
+    
     z-index: 999;
     transition: 0.5s all ease;
 
@@ -14,38 +11,22 @@
         color: black;
 
         button {
-            background-color: white !important;
             color: #1dbf73 !important;
             border: 1px solid #1dbf73 !important;
-        }
+        }   
     }
 
     .container {
-        width: 100%;
         display: flex;
-        align-items: center;
         justify-content: space-between;
-        padding: 20px 0px;
+        padding: 1rem;
+        background-color: transparent;
 
-        .logo {
-            margin-left: 30px;
-            font-size: 34px;
-            font-weight: bold;
 
-            .text {
-            }
-
-            .dot {
-                font-weight: bold;
-                color: #1dbf73;
-            }
-        }
         .links {
-            margin: 10px;
             display: flex;
             align-items: center;
-            gap: 24px;
-            font-family: "Montserrat", sans-serif;
+            gap: 1rem;
             font-weight: 500;
 
             span {
@@ -90,33 +71,24 @@
                 border-radius: 5px;
                 border: 1px solid white;
                 background-color: transparent;
-                cursor: pointer;
 
                 &:hover {
-                    background-color: #1dbf73;
-                    border-color: #1dbf73;
+
                 }
             }
         }
     }
 
     hr {
-        width: calc(100% - 2px);
-        height: 0;
-        border-top: 0.5px solid #ebe9e9;
-        border-bottom: 0.5px solid #ebe9e9;
+        width: 100%;
+        border-top: 1px solid #ebe9e9;
     }
 
     .menu {
-        width: 100%;
-        padding: 10px 0px;
         display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        padding: 10px 0px;
         color: gray;
-        font-weight: 300;
-        font-family: "Montserrat", sans-serif;
-    }
-
-    .menu a {
-        margin: 0 10px;
     }
 }

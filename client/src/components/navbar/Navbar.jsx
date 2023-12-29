@@ -25,7 +25,7 @@ function Navbar() {
   const navigate = useNavigate();
 
   const isActive = () => {
-    window.scrollY > 0 ? setActive(true) : setActive(false);
+    setActive(window.scrollY > 0) 
   };
 
   useEffect(() => {
@@ -50,7 +50,7 @@ function Navbar() {
   }
 
   return (
-    <div className={active || pathname !== "/" ? "navbar active" : "navbar"}>
+    <nav className={active || pathname !== "/" ? "navbar active" : "navbar"}>
       <div className="container">
         <Logo />
         <div className="links">
@@ -107,15 +107,14 @@ function Navbar() {
           <hr />
           <div className="menu">
             {categories.map(category =>
-              <Link className="link menuLink" to="/">
+              <Link to="/">
                 {category}
               </Link>
             )}
           </div>
-          <hr />
         </>
       )}
-    </div>
+    </nav>
   );
 }
 
