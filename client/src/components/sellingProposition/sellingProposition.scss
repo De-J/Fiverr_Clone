@@ -2,15 +2,10 @@
     display: flex;
     align-items: center;
     font-size: 1rem;
-    padding: 5rem 2rem;
-    background-color: #f1fdf7;
 }
 
-ul {
-    padding-right: 6rem;
-}
-
-img {
-    max-height: 380px;
-    max-width: 600px;
+@media only screen and (max-width: 768px) {
+    img {
+        display: none;
+    }
 }
