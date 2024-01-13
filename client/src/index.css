@@ -17,5 +17,9 @@ html {
     --btn-backg-hover-color: #19a463;
 
     font-size: 16px;
+}
 
+button {
+    background: none;
+    color: inherit;
 }
