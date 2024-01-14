@@ -24,7 +24,7 @@ const SellingProposition = () => {
   return (
     <section style={{ backgroundColor: "#f1fdf7", padding: "2rem 2rem 3rem" }}>
       <h2 style={{ fontSize: "2rem", textAlign: "center", padding: "1rem 0 4rem" }}>A whole world of freelance talent at your fingertips.</h2>
-      <div className="container">
+      <div className="propositionList">
         <ul>
           {data.map(item => <ListItem title={item.title} description={item.description} />)}
         </ul>
