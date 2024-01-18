@@ -1,42 +1,63 @@
-import { useState, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 function Carousel({ children }) {
-    const [style, setStyle] = useState({ display: "flex", gap: "0.5rem", overflow: "hidden", position: "relative" });
     const containerRef = useRef();
-    console.log("render");
 
     // use scrollLeft property instead of translateX
     // translateX does not work on overflow: hidden elements
     // i.e. after translating the element appears clipped as mentioned in overflow mozilla docs
-    // but scrollLeft, scrollRight allows you to see this clipped content
-    let itemsLeftInCarousel = 0, numberOfFullyVisibleItems = 0, itemWidth = 1000;
+    // but scrollLeft allows you to see this clipped content
+    let numberOfItemsLeftInCarousel = 0, numberOfFullyVisibleItems = 0,
+        itemWidth = 1000, numberOfItemsScrolled = 0;
+    
     useEffect(() => {
         const containerWidth = containerRef.current.clientWidth;
 
+        containerRef.current.scrollLeft = 0;
         itemWidth = containerRef.current.childNodes[0].clientWidth;
         numberOfFullyVisibleItems = Math.floor(containerWidth / itemWidth);
-        itemsLeftInCarousel = containerRef.current.childNodes.length - numberOfFullyVisibleItems;
+        numberOfItemsLeftInCarousel = containerRef.current.childNodes.length - numberOfFullyVisibleItems; 
     }, []);
 
-    const slideRight = () => {
-        if (itemsLeftInCarousel >= numberOfFullyVisibleItems) {
-            itemsLeftInCarousel -= numberOfFullyVisibleItems;
-            setStyle(prev => ({ ...prev, translate: `-${numberOfFullyVisibleItems * itemWidth}px 0` }));
+    const scrollRight = () => {
+        if (numberOfItemsLeftInCarousel >= numberOfFullyVisibleItems) {
+            numberOfItemsScrolled += numberOfFullyVisibleItems;
+            numberOfItemsLeftInCarousel -= numberOfFullyVisibleItems;
+            // console.log(numberOfItemsScrolled, "if", numberOfItemsLeftInCarousel);
+            containerRef.current.scrollLeft += numberOfFullyVisibleItems * itemWidth;
         }
-        else if (itemsLeftInCarousel !== 0) {
+        else if (numberOfItemsLeftInCarousel !== 0) {
             // disable right arrow
-            setStyle(prev => ({ ...prev, translate: `-${itemsLeftInCarousel * itemWidth}px 0` }));
-            itemsLeftInCarousel = 0;
+            numberOfItemsScrolled += numberOfItemsLeftInCarousel;
+            containerRef.current.scrollLeft += numberOfItemsLeftInCarousel * itemWidth;
+            numberOfItemsLeftInCarousel = 0;
+            // console.log(numberOfItemsScrolled, "else if", numberOfItemsLeftInCarousel);
+        }
+    }
+    // works the first time
+    const scrollLeft = () => {
+        if (numberOfItemsScrolled >= numberOfFullyVisibleItems) {
+            numberOfItemsScrolled -= numberOfFullyVisibleItems;
+            numberOfItemsLeftInCarousel += numberOfFullyVisibleItems;
+            containerRef.current.scrollLeft -= numberOfFullyVisibleItems * itemWidth;
+        }
+        else if (numberOfItemsScrolled !== 0) {
+            // disable left arrow
+            let x = containerRef.current.childNodes.length - numberOfItemsLeftInCarousel;
+            numberOfItemsScrolled -= x;
+            containerRef.current.scrollLeft -= x * itemWidth;
+            numberOfItemsLeftInCarousel = containerRef.current.childNodes.length - numberOfFullyVisibleItems;
+            console.log(x);
         }
     }
 
     return (
         <section>
-            <div ref={containerRef} style={style}>
+            <div ref={containerRef} style={{ display: "flex", gap: "0.5rem", overflow: "hidden", position: "relative" }}>
                 {children}
             </div>
-            <button>&lt;Prev</button>
-            <button onClick={slideRight}>Next&gt;</button>
+            <button onClick={scrollLeft}>&lt;Prev</button>
+            <button onClick={scrollRight}>Next&gt;</button>
         </section>
     )
 }
