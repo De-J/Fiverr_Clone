@@ -26,7 +26,7 @@ const SellingProposition = () => {
       <h2 style={{ fontSize: "2rem", textAlign: "center", padding: "1rem 0 4rem" }}>A whole world of freelance talent at your fingertips.</h2>
       <div className="propositionList">
         <ul>
-          {data.map(item => <ListItem title={item.title} description={item.description} />)}
+          {data.map((item, idx) => <ListItem key={idx} title={item.title} description={item.description} />)}
         </ul>
         <img style={{ maxHeight: "380px", maxWidth: "600px", paddingLeft: "2rem" }} alt="Video Thumbnail" src="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_600,dpr_2.0/v1/attachments/generic_asset/asset/089e3bb9352f90802ad07ad9f6a4a450-1599517407052/selling-proposition-still-1400-x1.png" />
       </div>
