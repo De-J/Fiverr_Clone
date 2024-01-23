@@ -5,8 +5,7 @@ import "./CatCard.scss";
 function CatCard({ card }) {
   return (
     <Link to="/gigs?cat=design">
-      <div className="catCard">
-        <img src={card.img} alt="" />
+      <div style={{ backgroundImage: `url("${card.img}")`, backgroundSize: "cover" }} className="catCard">
         <span className="desc">{card.desc}</span>
         <span className="title">{card.title}</span>
       </div>
